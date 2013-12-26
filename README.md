@@ -31,17 +31,36 @@ Run Integration Test
 
 Architecture
 ------------
-- Tomcat 7 (Web Host)
-- Jersey (RESTful API)
-- Guice (Dependency Injection)
-- Maven (Build)
-- Hibernate (DAL)
-- MySQL (DB)
-- Selenium/WebDriver/Surefire (Testing)
-- Logback (Logging)
-- Bootstrap (Visuals)
-- AngularJS (Frontend)
-- Sass (Style)
+&#x2713; **: Implemented,** &#x2717; **: Not Implemented**
+
+&#x2713; Tomcat 7 (Web Host)
+
+&#x2717; Jersey (RESTful API)
+
+&#x2717; Guice (Dependency Injection)
+
+&#x2713; Maven (Java Build)
+
+&#x2717; Hibernate (DAL)
+
+&#x2717; MySQL (DB)
+
+&#x2713; Bootstrap (Visuals)
+
+&#x2717; Sass (Style)
+
+&#x2713; AngularJS (Frontend)
+
+&#x2713; Surefire/JUnit (Java/Server Testing)
+
+&#x2713; Selenium/WebDriver (Integration Testing)
+
+&#x2717; Protractor/Jasmine (Javascript/Client Testing)
+- Use [Protractor](http://www.asgarddesigns.com.au/2013/11/end-to-end-testing-with-angularjs-protractor-grunt-and-maven/), which supplants Karma as the recommended test framework for AngularJS
+
+&#x2717; Grunt (Javascript Build)
+
+&#x2717; Logback (Logging)
 
 Source
 -----
