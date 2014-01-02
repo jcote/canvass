@@ -37,7 +37,7 @@ Architecture
 
 &#x2713; Jersey (RESTful API)
 
-&#x2717; Guice (Dependency Injection)
+&#x2713; Guice (Dependency Injection)
 
 &#x2713; Maven (Java Build)
 
