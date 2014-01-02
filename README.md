@@ -35,7 +35,7 @@ Architecture
 
 &#x2713; Tomcat 7 (Web Host)
 
-&#x2717; Jersey (RESTful API)
+&#x2713; Jersey (RESTful API)
 
 &#x2717; Guice (Dependency Injection)
 
@@ -62,10 +62,12 @@ Architecture
 
 &#x2717; Logback (Logging)
 
-Source
+Source File Locations
 -----
 - Static web (HTML, CSS, Javascript)
   - [canvass-web-main/src/main/webapp](canvass-web-main/src/main/webapp)
+- API
+  - [canvass-web-main/src/main/java/com/canvass/api](canvass-web-main/src/main/java/com/canvass/api)
 
 Notes
 -----
