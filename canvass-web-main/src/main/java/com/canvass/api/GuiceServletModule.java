@@ -1,18 +1,22 @@
 package com.canvass.api;
 
-
-
-
+import com.canvass.api.resource.BillResource;
 import com.canvass.api.resource.HelloResource;
+import com.canvass.data.DataStore;
+import com.canvass.data.HibernateDataStore;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import com.google.inject.Scopes;
 import com.google.inject.servlet.ServletModule;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 
-public class ApiServletModule extends ServletModule {
+public class GuiceServletModule extends ServletModule {
     @Override
     protected void configureServlets() {
+        bind(DataStore.class).to(HibernateDataStore.class);
+
+        // hook Resources to Guice Servlet
         bind(HelloResource.class);
+        bind(BillResource.class);
 
         // hook Jersey into Guice Servlet
         bind(GuiceContainer.class);
@@ -20,6 +24,13 @@ public class ApiServletModule extends ServletModule {
         // hook Jackson into Jersey as the POJO <-> JSON mapper
         bind(JacksonJsonProvider.class).in(Scopes.SINGLETON);
 
+        // Filters
+        // These are processed in order that they appear here
+        //filter("/*").through(MyFilter.class);
+        //filter("*.css").through(MyCssFilter.class);
+
+        // Routing
+        // These are processed in order that they appear here
         serve("/api/*").with(GuiceContainer.class);
         }
 }
