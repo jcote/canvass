@@ -35,9 +35,12 @@ Architecture
 
 &#x2713; Tomcat 7 (Web Host)
 
+&#x2717; JBoss AS7 (Web Host)
+  - After reading [the great java server app debate](http://zeroturnaround.com/rebellabs/the-great-java-application-server-debate-with-tomcat-jboss-glassfish-jetty-and-liberty-profile/) report, and discovering that Glassfish [has just been ditched](http://www.zdnet.com/oracle-abandons-commercial-support-for-glassfish-jee-server-7000022945/) by Oracle, I've decided to go with JBoss (recently renamed Wildfly).  It supports JavaEE, has a great management web console, and commercial support available.  Wildfly RC8 was released in december, and a stable version is coming soon but it is too early to use it.
+
 &#x2713; Jersey (RESTful API)
 
-&#x2717; Guice (Dependency Injection)
+&#x2713; Guice (Dependency Injection)
 
 &#x2713; Maven (Java Build)
 
