@@ -44,9 +44,9 @@ Architecture
 
 &#x2713; Maven (Java Build)
 
-&#x2717; Hibernate (DAL)
+&#x2713; Hibernate (DAL)
 
-&#x2717; MySQL (DB)
+&#x2713; MySQL (DB)
 
 &#x2713; Bootstrap (Visuals)
 
