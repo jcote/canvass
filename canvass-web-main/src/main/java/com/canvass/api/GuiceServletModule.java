@@ -4,6 +4,9 @@ import com.canvass.api.resource.BillResource;
 import com.canvass.api.resource.HelloResource;
 import com.canvass.data.DataStore;
 import com.canvass.data.HibernateDataStore;
+import com.canvass.security.SecurityContextFilter;
+import com.canvass.servlet.EnrollServlet;
+import com.canvass.servlet.LoginServlet;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import com.google.inject.Scopes;
 import com.google.inject.servlet.ServletModule;
@@ -26,11 +29,13 @@ public class GuiceServletModule extends ServletModule {
 
         // Filters
         // These are processed in order that they appear here
-        //filter("/*").through(MyFilter.class);
+        filter("/api/*").through(SecurityContextFilter.class);
         //filter("*.css").through(MyCssFilter.class);
 
         // Routing
         // These are processed in order that they appear here
         serve("/api/*").with(GuiceContainer.class);
+        serve("/enroll").with(EnrollServlet.class);
+        serve("/login").with(LoginServlet.class);
         }
 }

@@ -2,18 +2,23 @@
  * Created by jordancote on 12/30/13.
  */
 
-var phonecatApp = angular.module('canvassApp', [
+var canvassApp = angular.module('canvassApp', [
     'ngRoute',
     'landingControllers',
-    'loginControllers'
+    'loginControllers',
+    'enrollControllers'
 ]);
 
-phonecatApp.config(['$routeProvider',
+canvassApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/landing', {
                 templateUrl: 'partials/landing.html',
                 controller: 'LandingCtrl'
+            }).
+            when('/enroll', {
+                templateUrl: 'partials/enroll.html',
+                controller: 'EnrollCtrl'
             }).
             when('/login', {
                 templateUrl: 'partials/login.html',
