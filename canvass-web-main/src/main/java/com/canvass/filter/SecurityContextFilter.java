@@ -1,4 +1,4 @@
-package com.canvass.security;
+package com.canvass.filter;
 
 import com.canvass.data.DataStore;
 import com.canvass.data.model.Account;

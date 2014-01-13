@@ -36,8 +36,8 @@
           <groupId>org.apache.tomcat.maven</groupId>
           <artifactId>tomcat7-maven-plugin</artifactId>
           <configuration>
-            <port>9090</port>
             <path>/</path>
+            <port>9090</port>
           </configuration>
         </plugin>
 
@@ -69,6 +69,10 @@
           <artifactId>servlet-api</artifactId>
           <scope>provided</scope>
       </dependency>
+      <dependency>
+	    <groupId>org.tuckey</groupId>
+	    <artifactId>urlrewritefilter</artifactId>
+	  </dependency>
 
 
       <!-- Jersey -->
