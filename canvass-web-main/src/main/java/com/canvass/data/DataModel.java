@@ -5,4 +5,5 @@ package com.canvass.data;
  * Created On: 1/3/14
  */
 public class DataModel {
+	
 }

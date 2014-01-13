@@ -62,6 +62,7 @@ public class EnrollServlet extends HttpServlet {
         Account account = new Account();
         account.setName(username);
         account.setHashpass(hashpass);
+        account.setCreatedOn(new Date());
         //account.setEmail(email);
         dataStore.save(account);
         dataStore.closeSession(dataSession);
