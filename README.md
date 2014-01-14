@@ -5,6 +5,15 @@ Requirements
 ------------
 - Java 7
 - Maven 3
+- MySQL
+  - Create the database:
+    - Run ```mysql -u root```
+    - Execute in MySQL: ```create database canvassweb;```
+    - Exit MySQL shell
+  - Set your MySQL password:
+    - Run ```mysqladmin -u root password "newpassword"```
+    - Set the field hibernate.connection.password in  [hibernate.properties](canvass-web-main/src/main/resources/hibernate.properties) to match "newpassword"
+    - Don't commit changes to hibernate.properties, unless you want your password permanently stored in github history
 
 Build
 ------------
