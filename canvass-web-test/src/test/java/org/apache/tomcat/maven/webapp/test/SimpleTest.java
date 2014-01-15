@@ -33,11 +33,11 @@ public class SimpleTest
         
         int seleniumPort = Integer.parseInt( System.getProperty( "selenium.port", "4444" ) );
         String browser = System.getProperty( "seleniumBrowser", "*firefox" );
-        String serverUrl = System.getProperty( "serverUrl", "http://localhost:9090/" );
+        String serverUrl = System.getProperty( "serverUrl", "http://localhost:9898/" );
         
         DefaultSelenium s = new DefaultSelenium( "localhost", seleniumPort, browser, serverUrl );
         s.start(  );
-        s.open( "index.html" );
+        s.open( "/" );
         assertEquals("Canvass", s.getTitle());
     }
     

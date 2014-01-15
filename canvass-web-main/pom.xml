@@ -59,6 +59,11 @@
           <artifactId>tomcat-juli</artifactId>
           <scope>test</scope>
       </dependency>
+	  <dependency>
+		<groupId>org.apache.tomcat</groupId>
+		<artifactId>tomcat-catalina</artifactId>
+		<scope>provided</scope>
+	  </dependency>
       <dependency>
           <groupId>org.apache.tomcat.embed</groupId>
           <artifactId>tomcat-embed-logging-juli</artifactId>
