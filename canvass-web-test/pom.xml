@@ -35,7 +35,8 @@
     <selenium.port>4444</selenium.port>
     <tomcat.port>9898</tomcat.port>
     <serverUrl>http://localhost:${tomcat.port}/</serverUrl>
-    <seleniumBrowser>*firefox</seleniumBrowser>
+    <seleniumBrowser>*chrome</seleniumBrowser>
+    <webdriver.chrome>protractor/node_modules/protractor/selenium/chromedriver</webdriver.chrome>
   </properties>
 
   <build>
@@ -123,9 +124,30 @@
                 <selenium.port>${selenium.port}</selenium.port>
                 <serverUrl>${serverUrl}</serverUrl>
                 <seleniumBrowser>${seleniumBrowser}</seleniumBrowser>
+                <webdriver.chrome.driver>${webdriver.chrome}</webdriver.chrome.driver>
               </systemPropertyVariables>
             </configuration>
           </execution>
+        </executions>
+      </plugin>
+            <plugin>
+	    <groupId>org.codehaus.mojo</groupId>
+	    <artifactId>exec-maven-plugin</artifactId>
+	    <version>1.2.1</version>
+	    <executions>
+          <execution>
+			    <id>Test E2E</id>
+			    <phase>integration-test</phase>
+			    <goals>
+			        <goal>exec</goal>
+			    </goals>
+			    <configuration>
+			        <executable>protractor</executable>
+			        <arguments>
+			            <argument>protractor/node_modules/protractor/referenceConf.js</argument>
+			        </arguments>
+			    </configuration>
+			</execution>
         </executions>
       </plugin>
       <plugin>
