@@ -5,6 +5,8 @@ Requirements
 ------------
 - Java 7
 - Maven 3
+- npm [install instructions](https://gist.github.com/isaacs/579814#file-only-git-all-the-way-sh)
+- Grunt, Bower ```npm install -g grunt-cli bower```
 - MySQL
   - Create the database:
     - Run ```mysql -u root```
