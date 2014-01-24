@@ -124,7 +124,6 @@
                 <selenium.port>${selenium.port}</selenium.port>
                 <serverUrl>${serverUrl}</serverUrl>
                 <seleniumBrowser>${seleniumBrowser}</seleniumBrowser>
-                <webdriver.chrome.driver>${webdriver.chrome}</webdriver.chrome.driver>
               </systemPropertyVariables>
             </configuration>
           </execution>
@@ -191,6 +190,9 @@
             <configuration>
               <background>true</background>
               <port>${selenium.port}</port>
+              <systemProperties>
+              	<webdriver.chrome.driver>${webdriver.chrome}</webdriver.chrome.driver>
+              </systemProperties>
               <logOutput>true</logOutput>
             </configuration>
           </execution>
