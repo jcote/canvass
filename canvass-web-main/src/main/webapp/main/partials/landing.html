@@ -1,73 +1,112 @@
+<style>
+	/**
+	 * Extra large button extensions. Extends `.btn`.
+	 */
+	.btn-xlarge 
+	{
+	    padding: 18px 28px;
+	    font-size: 22px;
+	    line-height: normal;
+	    -webkit-border-radius: 8px;
+	       -moz-border-radius: 8px;
+	            border-radius: 8px;
+	 }
+	    
+	 #button-section
+	 {
+	 	padding-top:50px;
+	 }
+</style>
 
-<div class="jumbotron">
-    <h1>Welcome to Canvass</h1>
-    <p>Canvass is an advisory tool for Representatives and Senators to collect the opinions of their voters.</p>
-    <p>{{votes}} Votes!</p>
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="input-group">
-                <label class="sr-only" for="enrollmentCode">Enrollment Code</label>
-                <input type="text" class="form-control" id="enrollmentCode" placeholder="Enter Code">
-                <span class="input-group-btn">
-                    <button class="btn btn-primary btn-default" type="button">Enroll</button>
-                </span>
-            </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-    </div><!-- /.row -->
+<div class="container">
+	
+	<div class="jumbotron">
+	    <h1 class="text-center">Let Legislators Hear Your Voice</h1>
+	    <p class="text-center">Canvass is an advisory tool for Representatives and Senators to collect the opinions of their voters</p>
+	</div>
+	
+	
+	<!-- content -->
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1">
+			<div class="media">
+			  <a class="pull-left" href="#">
+			    <i class="fa fa-plus-circle fa-5x"></i> 
+			  </a>
+			  <div class="media-body">
+			    <h2 class="media-heading">Your Rep Enrolls</h2>
+			    <p class="lead">Representatives sign up and post polls on bills</p>
+			  </div>
+			</div>
+			<br/>
+			<div class="media">
+			  <a class="pull-left" href="#">
+			    <i class="fa fa-plus-square fa-5x"></i> 
+			  </a>
+			  <div class="media-body">
+			    <h2 class="media-heading">You Enroll</h2>
+			    <p class="lead">You enroll and vote on polls</p>
+			  </div>
+			</div>
+			<br/>
+			<div class="media">
+			  <a class="pull-left" href="#">
+			    <i class="fa fa-thumbs-up fa-5x"></i> 
+			  </a>
+			  <div class="media-body">
+			    <h2 class="media-heading">You Vote</h2>
+			    <p class="lead">Results are publicized and action takes place</p>
+			  </div>
+			</div>
+			<br/>
+			<div class="media">
+			  <a class="pull-left" href="#">
+			    <i class="fa fa-check-circle fa-5x"></i> 
+			  </a>
+			  <div class="media-body">
+			    <h2 class="media-heading">Results</h2>
+			    <p class="lead">Come back to view results of polls and actuall bill process</p>
+			  </div>
+			</div>
+			<br/>
+		</div>
 
-</div>
+		<div class="col-xs-12 col-sm-5">
+			<div id="button-section">
+			<p><button href="#" class="btn btn-primary btn-block btn-xlarge" style="height:100px">Get Started</button></p>
+			<p><button href="#" class="btn btn-success btn-block btn-xlarge" style="height:100px">Representatives Enroll Here</button></p>
+			<p><button href="#" class="btn btn-success btn-block btn-xlarge" style="height:100px">Log In</button></p>
+			</div>
+		</div>
+	</div>
 
+	
+	<!-- FOOTER -->
+	<!-- footer>
+	    <p class="pull-right"><a href="#">Back to top</a></p>
+	    <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+	</footer>
+	 -->
 
-<!-- START THE FEATURETTES -->
-
-<hr class="featurette-divider">
-
-<div class="row featurette">
-    <div class="col-md-7">
-        <h2 class="featurette-heading">Elected Officials <span class="text-muted">who value your input</span></h2>
-        <p class="lead">Representative choose Bills for Polling.</p>
-    </div>
-    <div class="col-md-5">
-        <img class="featurette-image img-responsive" data-src="holder.js/300x300/auto" alt="Generic placeholder image">
-    </div>
-</div>
-
-<hr class="featurette-divider">
-
-<div class="row featurette">
-    <div class="col-md-5">
-        <img class="featurette-image img-responsive" data-src="holder.js/300x300/auto" alt="Generic placeholder image">
-    </div>
-    <div class="col-md-7">
-        <h2 class="featurette-heading">Vote <span class="text-muted">on real bills</span></h2>
-        <p class="lead">You vote directly on the Bills, as if they were a referendum or ballot question.</p>
-    </div>
-</div>
-
-<hr class="featurette-divider">
-
-<div class="row featurette">
-    <div class="col-md-7">
-        <h2 class="featurette-heading">Opinion Polls <span class="text-muted">that mean something</span></h2>
-        <p class="lead">Participants in the poll are all registered voters in your district</p>
-        <p class="lead">Voters may only cast one vote</p>
-    </div>
-    <div class="col-md-5">
-        <img class="featurette-image img-responsive" data-src="holder.js/300x300/auto" alt="Generic placeholder image">
-    </div>
-</div>
-
-<hr class="featurette-divider">
-
-<!-- /END THE FEATURETTES -->
-
-
-<!-- FOOTER -->
-<footer>
-    <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-</footer>
-
+<hr>
+ <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <ul class="list-inline">
+              <li><a href="www.facebook.com"><i class="fa fa-facebook fa-2x"></a></i></li>
+              <li><a href="www.twitter.com"><i class="fa fa-twitter fa-2x"></i></a></li>
+			  <li><a href="www.google-plus.com"><i class="fa fa-google-plus fa-2x"></i></a></li>
+              <li><a href="www.pinterest.com"><i class="fa fa-pinterest fa-2x"></i></a></li>
+            </ul>
+            <div class="top-scroll">
+              <a href="#top"><i class="fa fa-circle-arrow-up scroll fa-4x"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 </div><!-- /.container -->
 
 <script src="lib/holder/holder.js"></script>
