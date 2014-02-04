@@ -27,7 +27,7 @@
   </parent>
 
   <artifactId>canvass-web-test</artifactId>
-  <packaging>pom</packaging>
+  <packaging>war</packaging>
 
   <properties>
     <seleniumPluginVersion>2.3</seleniumPluginVersion>
@@ -36,7 +36,7 @@
     <tomcat.port>9898</tomcat.port>
     <serverUrl>http://localhost:${tomcat.port}/</serverUrl>
     <seleniumBrowser>*chrome</seleniumBrowser>
-    <webdriver.chrome>protractor/node_modules/protractor/selenium/chromedriver</webdriver.chrome>
+    <webdriver.chrome>../../protractor/node_modules/protractor/selenium/chromedriver</webdriver.chrome>
   </properties>
 
   <build>
@@ -70,6 +70,7 @@
       </plugins>
     </pluginManagement>
     <plugins>
+    <!-- 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -82,6 +83,28 @@
           </execution>
         </executions>
       </plugin>
+       -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <overlays>
+            <overlay>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>canvass-web-main</artifactId>
+              <excludes>
+                <exclude>**/web.xml</exclude>
+                <exclude>**/*.properties</exclude>
+              </excludes>
+            </overlay>
+            <overlay>
+              <!-- canvass-web-test -->
+            </overlay>
+          </overlays>
+        </configuration>
+      </plugin>
+<!-- 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -102,12 +125,15 @@
                   <type>war</type>
                 </artifactItem>
               </artifactItems>
+              <excludes>**/*.properties,**/web.xml</excludes>
               <outputDirectory>${project.build.directory}/webapp</outputDirectory>
               <overWriteSnapshots>true</overWriteSnapshots>
             </configuration>
           </execution>
         </executions>
       </plugin>
+       -->
+      <!-- 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -129,11 +155,29 @@
           </execution>
         </executions>
       </plugin>
+       -->
             <plugin>
 	    <groupId>org.codehaus.mojo</groupId>
 	    <artifactId>exec-maven-plugin</artifactId>
 	    <version>1.2.1</version>
 	    <executions>
+	    <!-- 
+	    	<execution>
+			    <id>Selenium</id>
+			    <phase>pre-integration-test</phase>
+			    <goals>
+			        <goal>exec</goal>
+			    </goals>
+			    <configuration>
+			        <executable>java</executable>
+			        <arguments>
+			            <argument>-jar</argument>
+			            <argument>protractor/node_modules/protractor/selenium/selenium-server-standalone-2.39.0.jar</argument>
+			            <argument>-Dwebdriver.chrome.driver=protractor/chromedriver</argument>
+			        </arguments>
+			    </configuration>
+			</execution>
+			 -->
           <execution>
 			    <id>Test E2E</id>
 			    <phase>integration-test</phase>
@@ -163,7 +207,7 @@
               <path>/</path>
               <port>${tomcat.port}</port>
               <uriEncoding>UTF-8</uriEncoding>
-              <warDirectory>${project.build.directory}/webapp/</warDirectory>
+              <warDirectory>${project.build.directory}/${project.artifactId}-${project.version}/</warDirectory>
               <fork>true</fork>
               <ignorePackaging>true</ignorePackaging>
               <contextFile>src/test/context.xml</contextFile>
@@ -178,6 +222,7 @@
           </execution>
         </executions>
       </plugin>
+      <!-- 
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>selenium-maven-plugin</artifactId>
@@ -198,10 +243,17 @@
           </execution>
         </executions>
       </plugin>
+       -->
     </plugins>
   </build>
 
   <dependencies>
+    <dependency>
+      <groupId>com.canvass</groupId>
+      <artifactId>canvass-web-main</artifactId>
+      <version>${project.version}</version>
+      <classifier>classes</classifier>
+    </dependency>
     <dependency>
       <groupId>com.canvass</groupId>
       <artifactId>canvass-web-main</artifactId>
@@ -224,6 +276,96 @@
       <version>1.0.2</version>
       <scope>test</scope>
     </dependency>
+    
+    
+          <!-- Tomcat -->
+      <dependency>
+          <groupId>org.apache.tomcat.embed</groupId>
+          <artifactId>tomcat-embed-core</artifactId>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.tomcat</groupId>
+          <artifactId>tomcat-juli</artifactId>
+          <scope>test</scope>
+      </dependency>
+	  <dependency>
+		<groupId>org.apache.tomcat</groupId>
+		<artifactId>tomcat-catalina</artifactId>
+		<scope>provided</scope>
+	  </dependency>
+      <dependency>
+          <groupId>org.apache.tomcat.embed</groupId>
+          <artifactId>tomcat-embed-logging-juli</artifactId>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+          <scope>provided</scope>
+      </dependency>
+      <dependency>
+	    <groupId>org.tuckey</groupId>
+	    <artifactId>urlrewritefilter</artifactId>
+	  </dependency>
+    
+
+      <!-- Jersey -->
+      <dependency>
+          <groupId>com.sun.jersey</groupId>
+          <artifactId>jersey-core</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>com.sun.jersey</groupId>
+          <artifactId>jersey-server</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>com.sun.jersey.contribs</groupId>
+          <artifactId>jersey-guice</artifactId>
+      </dependency>
+
+      <!-- Guice -->
+      <dependency>
+          <groupId>com.google.inject</groupId>
+          <artifactId>guice</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>com.google.inject.extensions</groupId>
+          <artifactId>guice-servlet</artifactId>
+      </dependency>
+
+      <!-- Jackson -->
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-core</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-databind</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-annotations</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>com.fasterxml.jackson.jaxrs</groupId>
+          <artifactId>jackson-jaxrs-json-provider</artifactId>
+      </dependency>
+
+      <!-- Hibernate -->
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-core</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-entitymanager</artifactId>
+      </dependency>
+
   </dependencies>
 
   <profiles>
