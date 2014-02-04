@@ -70,20 +70,6 @@
       </plugins>
     </pluginManagement>
     <plugins>
-    <!-- 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>test-compile</phase>
-            <goals>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-       -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
@@ -104,93 +90,24 @@
           </overlays>
         </configuration>
       </plugin>
-<!-- 
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.4</version>
-        <executions>
-          <execution>
-            <id>unzip-webapp</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>${project.groupId}</groupId>
-                  <artifactId>canvass-web-main</artifactId>
-                  <version>${project.version}</version>
-                  <type>war</type>
-                </artifactItem>
-              </artifactItems>
-              <excludes>**/*.properties,**/web.xml</excludes>
-              <outputDirectory>${project.build.directory}/webapp</outputDirectory>
-              <overWriteSnapshots>true</overWriteSnapshots>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-       -->
-      <!-- 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.11</version>
-        <executions>
-          <execution>
-            <id>selenium-integration-tests</id>
-            <phase>integration-test</phase>
-            <goals>
-              <goal>test</goal>
-            </goals>
-            <configuration>
-              <systemPropertyVariables>
-                <selenium.port>${selenium.port}</selenium.port>
-                <serverUrl>${serverUrl}</serverUrl>
-                <seleniumBrowser>${seleniumBrowser}</seleniumBrowser>
-              </systemPropertyVariables>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-       -->
-            <plugin>
 	    <groupId>org.codehaus.mojo</groupId>
 	    <artifactId>exec-maven-plugin</artifactId>
 	    <version>1.2.1</version>
 	    <executions>
-	    <!-- 
-	    	<execution>
-			    <id>Selenium</id>
-			    <phase>pre-integration-test</phase>
-			    <goals>
-			        <goal>exec</goal>
-			    </goals>
-			    <configuration>
-			        <executable>java</executable>
-			        <arguments>
-			            <argument>-jar</argument>
-			            <argument>protractor/node_modules/protractor/selenium/selenium-server-standalone-2.39.0.jar</argument>
-			            <argument>-Dwebdriver.chrome.driver=protractor/chromedriver</argument>
-			        </arguments>
-			    </configuration>
-			</execution>
-			 -->
           <execution>
-			    <id>Test E2E</id>
-			    <phase>integration-test</phase>
-			    <goals>
-			        <goal>exec</goal>
-			    </goals>
-			    <configuration>
-			        <executable>protractor</executable>
-			        <arguments>
-			            <argument>protractor/node_modules/protractor/referenceConf.js</argument>
-			        </arguments>
-			    </configuration>
-			</execution>
+		    <id>Test E2E</id>
+		    <phase>integration-test</phase>
+		    <goals>
+		        <goal>exec</goal>
+		    </goals>
+		    <configuration>
+		        <executable>protractor</executable>
+		        <arguments>
+		            <argument>protractor/node_modules/protractor/referenceConf.js</argument>
+		        </arguments>
+		    </configuration>
+		  </execution>
         </executions>
       </plugin>
       <plugin>
@@ -222,28 +139,6 @@
           </execution>
         </executions>
       </plugin>
-      <!-- 
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>selenium-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>pre-integration-test</phase>
-            <goals>
-              <goal>start-server</goal>
-            </goals>
-            <configuration>
-              <background>true</background>
-              <port>${selenium.port}</port>
-              <systemProperties>
-              	<webdriver.chrome.driver>${webdriver.chrome}</webdriver.chrome.driver>
-              </systemProperties>
-              <logOutput>true</logOutput>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-       -->
     </plugins>
   </build>
 
