@@ -10,7 +10,7 @@ Requirements
 - MySQL
   - Create the database:
     - Run ```mysql -u root```
-    - Execute in MySQL: ```create database canvassweb;```
+    - Execute in MySQL: ```create database canvassweb;``` and ```create database canvasswebtest;```
     - Exit MySQL shell
   - Set your MySQL password:
     - Run ```mysqladmin -u root password "newpassword"```
@@ -69,10 +69,10 @@ Architecture
 
 &#x2713; Selenium/WebDriver (Integration Testing)
 
-&#x2717; Protractor/Jasmine (Javascript/Client Testing)
+&#x2713; Protractor/Jasmine (Javascript/Client Testing)
 - Use [Protractor](http://www.asgarddesigns.com.au/2013/11/end-to-end-testing-with-angularjs-protractor-grunt-and-maven/), which supplants Karma as the recommended test framework for AngularJS
 
-&#x2717; Grunt (Javascript Build)
+&#x2713; Grunt (Javascript Build)
 
 &#x2717; Logback (Logging)
 
