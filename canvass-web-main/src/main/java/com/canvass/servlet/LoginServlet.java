@@ -97,6 +97,9 @@ public class LoginServlet extends HttpServlet {
         webSession.setSessionId(httpSession.getId());
         dataStore.save(webSession);
 
+        account.setLastWebSession(webSession);
+        dataStore.save(account);
+
         response.setStatus(HttpServletResponse.SC_OK);
     }
 }
