@@ -99,6 +99,7 @@ public class LoginServlet extends HttpServlet {
         
         account.setLastWebSession(webSession);
         dataStore.save(account);
+        
         response.setStatus(HttpServletResponse.SC_OK);
     }
 }
