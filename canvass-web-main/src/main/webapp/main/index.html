@@ -18,53 +18,23 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand active" href="#">Canvass</a>
-    </div>
+    <navbar></navbar>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">About Canvass</a></li>
-                    <li><a href="#">How Bills become Law</a></li>
-                    
-                </ul>
-            </li>
-            <li><a href="#">Bills</a></li>
-            <li><a href="#/enroll">Enrollment</a></li>
-            <li><a href="#">Representatives</a></li>
+    <div ng-view></div>
 
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-        	<li><a href="#">Contact</a></li>
-            <li><a href="#/login">Log in</a></li>
-        </ul>
-    </div><!-- /.navbar-collapse -->
-</nav>
-
-<div ng-view></div>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="lib/jquery/jquery-1.10.2.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="lib/cryptojs/sha256.js"></script>
-<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="lib/angular/angular.js"></script>
-<script src="lib/angular/angular-route.js"></script>
-<script src="js/module/canvass.js"></script>
-<script src="js/controller/landing.js"></script>
-<script src="js/controller/login.js"></script>
-<script src="js/controller/enroll.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="lib/jquery/jquery-1.10.2.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="lib/cryptojs/sha256.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="js/canvassApp.js"></script>
+    <script src="js/controller/navbar.js"></script>
+    <script src="js/controller/landing.js"></script>
+    <script src="js/controller/login.js"></script>
+    <script src="js/controller/enroll.js"></script>
+    <script src="js/directives/navbar.js"></script>
+    <script src="js/services/pageTitle.js"></script>
 </body>
 </html>

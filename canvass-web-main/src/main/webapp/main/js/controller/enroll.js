@@ -1,6 +1,8 @@
 angular.module('canvassApp')
-	.controller('EnrollCtrl', ['$scope', '$http',
-	    function ($scope, $http) {
+	.controller('EnrollCtrl', ['$scope', '$http', 'PageTitle', function ($scope, $http, PageTitle) {
+
+		PageTitle.setTitle('Enroll');
+
 		 $scope.isAlertShown = false;
 		 $scope.alertStatus = "info";
 		 
