@@ -3,9 +3,12 @@
  */
 
 angular.module('canvassApp', ['ngRoute'])
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+
+       // Responds with 405 $locationProvider.html5Mode(true);//pushstate
+
         $routeProvider.
-            when('/landing', {
+            when('/', {
                 templateUrl: 'partials/landing.html',
                 controller: 'LandingCtrl'
             }).
@@ -18,6 +21,6 @@ angular.module('canvassApp', ['ngRoute'])
                 controller: 'LoginCtrl'
             }).
             otherwise({
-                redirectTo: '/landing'
+                redirectTo: '/'
             });
-        }]);
+        }])
