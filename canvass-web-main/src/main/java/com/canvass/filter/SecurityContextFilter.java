@@ -56,7 +56,7 @@ public class SecurityContextFilter implements Filter {
     }
 
     /**
-     * logic to accept or reject access to the page, check log in status
+     * logic to accept or reject access to the page, check if "logged in"
      * @return true when authentication is deemed valid
      */
     protected boolean isAuth(HttpServletRequest request, HttpServletResponse response) {
@@ -64,17 +64,18 @@ public class SecurityContextFilter implements Filter {
 
         // get authenticated account from session
         Object accountObject = httpSession.getAttribute("principal");
+        // standard logic for "not logged in"
+        if (accountObject == null) {
+            servletContext.log("Not Authenticated");
+            return false;
+        }
+        // should never happen
         if (!(accountObject instanceof Account)) {
             servletContext.log("Principal attribute is not an Account");
             return false;
         }
+        // got valid account
         Account account = (Account) accountObject;
-
-        // standard logic for "not logged in"
-        if (account == null) {
-            servletContext.log("Not Authenticated");
-            return false;
-        }
 
         // update websession
         WebSession webSession = account.getLastWebSession();

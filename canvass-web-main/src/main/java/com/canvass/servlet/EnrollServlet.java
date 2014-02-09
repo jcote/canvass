@@ -25,7 +25,7 @@ import java.util.logging.Logger;
  */
 @Singleton
 public class EnrollServlet extends HttpServlet {
-    private final Logger logger;
+	private final Logger logger;
     private final DataStore dataStore;
 
     @Inject
