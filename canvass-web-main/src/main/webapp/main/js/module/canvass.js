@@ -2,15 +2,8 @@
  * Created by jordancote on 12/30/13.
  */
 
-var canvassApp = angular.module('canvassApp', [
-    'ngRoute',
-    'landingControllers',
-    'loginControllers',
-    'enrollControllers'
-]);
-
-canvassApp.config(['$routeProvider',
-    function($routeProvider) {
+angular.module('canvassApp', ['ngRoute'])
+    .config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/landing', {
                 templateUrl: 'partials/landing.html',
@@ -27,4 +20,4 @@ canvassApp.config(['$routeProvider',
             otherwise({
                 redirectTo: '/landing'
             });
-    }]);
+        }]);
