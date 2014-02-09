@@ -2,7 +2,7 @@
  * Created by jordancote on 12/30/13.
  */
 
-angular.module('canvassApp', ['ngRoute'])
+angular.module('canvassApp', ['ngRoute','ngResource'])
     .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
        // Responds with 405 $locationProvider.html5Mode(true);//pushstate

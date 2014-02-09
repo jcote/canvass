@@ -3,6 +3,7 @@ package com.canvass.api;
 import org.apache.catalina.servlets.DefaultServlet;
 
 import com.canvass.api.resource.BillResource;
+import com.canvass.api.resource.ContactResource;
 import com.canvass.api.resource.HelloResource;
 import com.canvass.data.DataStore;
 import com.canvass.data.HibernateDataStore;
@@ -22,6 +23,7 @@ public class GuiceServletModule extends ServletModule {
         // hook Resources to Guice Servlet
         bind(HelloResource.class);
         bind(BillResource.class);
+        bind(ContactResource.class);
 
         // hook Jersey into Guice Servlet
         bind(GuiceContainer.class);
@@ -33,7 +35,7 @@ public class GuiceServletModule extends ServletModule {
 
         // Filters
         // These are processed in order that they appear here
-        filter("/api/*").through(SecurityContextFilter.class);
+        filterRegex("/api/(?!contact).*").through(SecurityContextFilter.class);
 
         // Routing
         // These are processed in order that they appear here
