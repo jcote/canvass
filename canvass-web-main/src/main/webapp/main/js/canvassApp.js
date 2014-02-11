@@ -23,4 +23,4 @@ angular.module('canvassApp', ['ngRoute'])
             otherwise({
                 redirectTo: '/'
             });
-        }])
+        }]);
