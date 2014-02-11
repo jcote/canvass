@@ -30,18 +30,49 @@
   <packaging>war</packaging>
   <build>
     <plugins>
-	  <plugin>
-	    <groupId>com.github.trecloux</groupId>
-	    <artifactId>yeoman-maven-plugin</artifactId>
-	    <version>0.1</version>
+      <plugin>
+	    <groupId>org.codehaus.mojo</groupId>
+	    <artifactId>exec-maven-plugin</artifactId>
+	    <version>1.2.1</version>
 	    <executions>
-	        <execution>
-	            <goals>
-	                <goal>build</goal>
-	            </goals>
-	        </execution>
-	    </executions>
-	  </plugin>
+          <execution>
+		    <id>npm-install</id>
+		    <phase>prepare-package</phase>
+		    <goals>
+		        <goal>exec</goal>
+		    </goals>
+		    <configuration>
+		        <executable>npm</executable>
+		        <arguments>
+		            <argument>install</argument>
+		        </arguments>
+		    </configuration>
+		  </execution>
+          <execution>
+		    <id>bower-install</id>
+		    <phase>prepare-package</phase>
+		    <goals>
+		        <goal>exec</goal>
+		    </goals>
+		    <configuration>
+		        <executable>bower</executable>
+		        <arguments>
+		            <argument>install</argument>
+		        </arguments>
+		    </configuration>
+		  </execution>
+          <execution>
+		    <id>grunt-build</id>
+		    <phase>prepare-package</phase>
+		    <goals>
+		        <goal>exec</goal>
+		    </goals>
+		    <configuration>
+		        <executable>grunt</executable>
+		    </configuration>
+		  </execution>
+        </executions>
+      </plugin>
 	  <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>2.4</version>
@@ -49,7 +80,7 @@
         	<attachClasses>true</attachClasses>
             <webResources>
                 <resource>
-                    <directory>yo/dist</directory>
+                    <directory>target/dist</directory>
                 </resource>
             </webResources>
         </configuration>
@@ -60,52 +91,14 @@
         <configuration>
           <filesets>
             <fileset>
-              <directory>yo/dist</directory>
+              <directory>target/dist</directory>
             </fileset>
             <fileset>
-			  <directory>yo/.tmp</directory>
-            </fileset>
-            <fileset>
-              <directory>yo/app/components</directory>
-            </fileset>
-            <fileset>
-              <directory>yo/node_modules</directory>
+              <directory>node_modules</directory>
             </fileset>
           </filesets>
         </configuration>
       </plugin>
-      <plugin>
-	    <groupId>org.codehaus.mojo</groupId>
-	    <artifactId>exec-maven-plugin</artifactId>
-	    <version>1.2.1</version>
-	    <executions>
-	      <execution>
-	        <id>Install NPM dependencies</id>
-	        <phase>prepare-package</phase>
-	        <goals>
-	          <goal>exec</goal>
-	        </goals>
-	        <configuration>
-	          <workingDirectory>yo</workingDirectory>
-	          <executable>npm</executable>
-	          <arguments>
-	            <argument>install</argument>
-	          </arguments>
-	        </configuration>
-	      </execution>
-	      <execution>
-		    <id>Build</id>
-			<phase>prepare-package</phase>
-			<goals>
-		        <goal>exec</goal>
-		    </goals>
-		    <configuration>
-		        <workingDirectory>yo</workingDirectory>
-		        <executable>grunt</executable>
-		    </configuration>
-	      </execution>
-	    </executions>
-	  </plugin>
 	</plugins>
     <pluginManagement>
       <plugins>
@@ -113,6 +106,7 @@
           <groupId>org.apache.tomcat.maven</groupId>
           <artifactId>tomcat7-maven-plugin</artifactId>
           <configuration>
+            <warSourceDirectory>${project.build.directory}/${project.artifactId}-${project.version}</warSourceDirectory>
             <path>/</path>
             <port>9090</port>
           </configuration>
