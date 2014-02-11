@@ -37,6 +37,7 @@ public class HibernateDataStore implements DataStore {
         configuration.addAnnotatedClass(Town.class);
         configuration.addAnnotatedClass(VoteRecord.class);
         configuration.addAnnotatedClass(Account.class);
+        configuration.addAnnotatedClass(Contact.class);
 	    configuration.configure();
 	    serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();        
 	    sessionFactory = configuration.buildSessionFactory(serviceRegistry);
