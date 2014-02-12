@@ -7,8 +7,11 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
+import com.canvass.api.json.ContactJson;
 import com.canvass.data.DataStore;
 import com.canvass.data.model.Contact;
 import com.google.inject.Inject;
@@ -32,14 +35,12 @@ public class ContactResource {
 
     @POST
     @Path("contact")
-    public void postContact(String email, String firstName, String lastName,  String zipCode)
-    {
-    	
+    public void postContact(ContactJson contactJson){
     	Contact contact = new Contact();
-    	contact.setEmail(email);
-    	contact.setFirstName(firstName);
-    	contact.setLastName(lastName);
-    	contact.setZipCode(zipCode);
+    	contact.setEmail(contactJson.getEmail());
+    	contact.setFirstName(contactJson.getFirstName());
+    	contact.setLastName(contactJson.getLastName());
+    	contact.setZipCode(contactJson.getZipCode());
     	contact.setCreatedOn(new Date());
     	logger.info("posted contact " + contact.getEmail());
     	dataStore.save(contact);
