@@ -10,10 +10,14 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
 
+  // pass in something like:
+  //   --target=/target/canvass-web-main-1.0
+  var target = grunt.option('target') || 'target/dist';
+
   // configurable paths
   var yeomanConfig = {
     app: 'src/main/webapp/main',
-    dist: 'target/dist'
+    dist: target
   };
 
   try {
@@ -34,6 +38,14 @@ module.exports = function (grunt) {
       sass: {
         files: ['<%= yeoman.app %>/css/{,*/}*.scss'],
         tasks: ['compass']
+      },
+      copyjs: {
+        files: ['<%= yeoman.app %>/js/{,*/}*.js'],
+        tasks: ['copy:distjs']
+      },
+      copycss: {
+        files: ['<%= yeoman.app %>/css/{,*/}*.css'],
+        tasks: ['copy:distcss']
       }
     },
     clean: {
@@ -87,12 +99,31 @@ module.exports = function (grunt) {
         }]
       }
     },
+    copy: {
+      distjs: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/js',
+          src: '{,*/}*.js',
+          dest: '<%= yeoman.dist %>/main/js'
+        }]
+      },
+      distcss: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/css',
+          src: '{,*/}*.css',
+          dest: '<%= yeoman.dist %>/main/css'
+        }]
+      }
+    },
     concurrent: {
       dist: [
         'jshint',
         'coffee',
         'compass',
-        'imagemin'
+        'imagemin',
+        'copy'
       ]
     }
   });

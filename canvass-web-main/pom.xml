@@ -69,6 +69,9 @@
 		    </goals>
 		    <configuration>
 		        <executable>grunt</executable>
+            <arguments>
+                <argument>--target=target/${project.artifactId}-${project.version}</argument>
+            </arguments>
 		    </configuration>
 		  </execution>
         </executions>
@@ -79,10 +82,14 @@
         <configuration>
         	<attachClasses>true</attachClasses>
             <webResources>
+              <!-- not needed - grunt copies directly now 
                 <resource>
                     <directory>target/dist</directory>
                 </resource>
+              -->
             </webResources>
+            <!-- these are excluded because grunt will pick them -->
+            <warSourceExcludes>main/image/**, main/js/**, main/css/**</warSourceExcludes>
         </configuration>
       </plugin>
       <plugin>
