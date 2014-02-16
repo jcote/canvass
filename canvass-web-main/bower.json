@@ -1,6 +1,6 @@
 {
-  "name": "karma",
-  "version": "0.0.0",
+  "name": "canvass",
+  "version": "0.1.0",
   "dependencies": {
     "angular": "~1.0.7",
     "json3": "~3.2.4",

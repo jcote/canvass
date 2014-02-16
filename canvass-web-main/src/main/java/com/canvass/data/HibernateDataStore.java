@@ -1,7 +1,8 @@
 package com.canvass.data;
-import com.canvass.data.model.*;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,9 +11,16 @@ import org.hibernate.cfg.ImprovedNamingStrategy;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.canvass.data.model.Account;
+import com.canvass.data.model.Bill;
+import com.canvass.data.model.BillVersion;
+import com.canvass.data.model.Contact;
+import com.canvass.data.model.Town;
+import com.canvass.data.model.VoteRecord;
+import com.canvass.data.model.Voter;
+import com.canvass.data.model.WebSession;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 @Singleton
 public class HibernateDataStore implements DataStore {
@@ -37,6 +45,7 @@ public class HibernateDataStore implements DataStore {
         configuration.addAnnotatedClass(Town.class);
         configuration.addAnnotatedClass(VoteRecord.class);
         configuration.addAnnotatedClass(Account.class);
+        configuration.addAnnotatedClass(Contact.class);
 	    configuration.configure();
 	    serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();        
 	    sessionFactory = configuration.buildSessionFactory(serviceRegistry);
@@ -95,6 +104,14 @@ public class HibernateDataStore implements DataStore {
                 .setString("UNAME", username)
                 .uniqueResult();
         return account;
+    }
+    
+    public Contact loadContact(Session session, String email) {
+    	Contact contact = (Contact) session
+                .createQuery("SELECT c FROM Contact AS c WHERE email = :EMAIL")
+                .setString("EMAIL", email)
+                .uniqueResult();
+        return contact;
     }
 
     public int invalidateWebSessions(Session session, long accountId) {

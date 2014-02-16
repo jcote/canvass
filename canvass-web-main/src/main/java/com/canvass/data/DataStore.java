@@ -1,11 +1,13 @@
 package com.canvass.data;
 
+import java.util.List;
+
+import org.hibernate.Session;
+
 import com.canvass.data.model.Account;
 import com.canvass.data.model.Bill;
 import com.canvass.data.model.BillVersion;
-import org.hibernate.Session;
-
-import java.util.List;
+import com.canvass.data.model.Contact;
 
 /**
  * Created By: jordancote
@@ -26,6 +28,8 @@ public interface DataStore {
     public void flush();
 
     public Account loadAccount(Session session, String username);
+    
+    public Contact loadContact(Session session, String email);
 
     public int invalidateWebSessions(Session session, long accountId);
 

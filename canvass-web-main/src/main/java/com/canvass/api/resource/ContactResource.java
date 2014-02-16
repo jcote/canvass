@@ -7,8 +7,13 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response.Status;
 
+import org.hibernate.Session;
+
+import com.canvass.api.json.ContactJson;
 import com.canvass.data.DataStore;
 import com.canvass.data.model.Contact;
 import com.google.inject.Inject;
@@ -32,17 +37,23 @@ public class ContactResource {
 
     @POST
     @Path("contact")
-    public void postContact(String email, String firstName, String lastName,  String zipCode)
+    public void postContact(ContactJson contactJson)
     {
-    	
-    	Contact contact = new Contact();
-    	contact.setEmail(email);
-    	contact.setFirstName(firstName);
-    	contact.setLastName(lastName);
-    	contact.setZipCode(zipCode);
+		Contact contact = new Contact();
+		contact.setEmail(contactJson.getEmail());
+    	contact.setFirstName(contactJson.getFirstName());
+    	contact.setLastName(contactJson.getLastName());
+    	contact.setZipCode(contactJson.getZipCode());
     	contact.setCreatedOn(new Date());
-    	logger.info("posted contact " + contact.getEmail());
-    	dataStore.save(contact);
+    	logger.info("posting contact: " + contact.getEmail());
+    	Session session = dataStore.createSession();
+    	
+    	Contact existingContact = dataStore.loadContact(session, contactJson.getEmail());
+    	if (existingContact != null){
+	    	logger.info("contact " + contact.getEmail() + "exists.");
+    		throw new WebApplicationException(Status.CONFLICT);
+    	}
+    	dataStore.save(contact);	
     }
 
 
