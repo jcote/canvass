@@ -6,13 +6,12 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-  "use strict";
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
 
   // pass in something like:
   //   --target=/target/canvass-web-main-1.0
-  var target = grunt.option('target') || 'target/dist';
+  var target = grunt.option('target') || 'target/canvass-web-main-1.0-SNAPSHOT';
 
   // configurable paths
   var yeomanConfig = {
@@ -29,7 +28,7 @@ module.exports = function (grunt) {
     watch: {
       jshint: {
         files: ['<%= yeoman.app %>/js/{,*/}*.js'],
-        tasks: ['jshint']
+        tasks: ['jshint', 'copy:distjs']
       },
       coffee: {
         files: ['<%= yeoman.app %>/js/{,*/}*.coffee'],
@@ -39,13 +38,17 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/css/{,*/}*.scss'],
         tasks: ['compass']
       },
-      copyjs: {
-        files: ['<%= yeoman.app %>/js/{,*/}*.js'],
-        tasks: ['copy:distjs']
+      imagemin: {
+        files: ['<%= yeoman.app %>/image/{,*/}*.{png,jpg,jpeg}'],
+        tasks: ['imagemin']
       },
       copycss: {
         files: ['<%= yeoman.app %>/css/{,*/}*.css'],
         tasks: ['copy:distcss']
+      },
+      copyhtml: {
+        files: ['<%= yeoman.app %>/{,*/}*.html'],
+        tasks: ['copy:disthtml']
       }
     },
     clean: {
@@ -54,8 +57,10 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
-            '<%= yeoman.dist %>/*',
-            '!<%= yeoman.dist %>/.git*'
+            '<%= yeoman.dist %>/main/js/{,*/}*.js',
+            '<%= yeoman.dist %>/main/css/{,*/}*.css',
+            '<%= yeoman.dist %>/main/image{,*/}*.{png,jpg,jpeg}',
+            '<%= yeoman.dist %>/main/{,*/}*.html'
           ]
         }]
       }
@@ -114,6 +119,14 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>/css',
           src: '{,*/}*.css',
           dest: '<%= yeoman.dist %>/main/css'
+        }]
+      },
+      disthtml: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>',
+          src: '{,*/}*.html',
+          dest: '<%= yeoman.dist %>/main'
         }]
       }
     },
