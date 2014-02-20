@@ -2,6 +2,7 @@ package com.canvass.api;
 
 import org.apache.catalina.servlets.DefaultServlet;
 
+import com.canvass.Constants;
 import com.canvass.api.resource.BillResource;
 import com.canvass.api.resource.ContactResource;
 import com.canvass.api.resource.HelloResource;
@@ -19,6 +20,7 @@ public class GuiceServletModule extends ServletModule {
     @Override
     protected void configureServlets() {
         bind(DataStore.class).to(HibernateDataStore.class);
+        bind(Constants.class);
 
         // hook Resources to Guice Servlet
         bind(HelloResource.class);

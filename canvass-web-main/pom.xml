@@ -226,6 +226,15 @@
           <groupId>commons-lang</groupId>
           <artifactId>commons-lang</artifactId>
       </dependency>
+      <dependency>
+		<groupId>commons-validator</groupId>
+		<artifactId>commons-validator</artifactId>
+	  </dependency>
+	  <dependency>
+		<groupId>commons-configuration</groupId>
+		<artifactId>commons-configuration</artifactId>
+	  </dependency>
+            
 
       <!-- Security -->
       <dependency>
@@ -246,6 +255,12 @@
           <artifactId>log4j</artifactId>
       </dependency>
 
+      <!-- Sailthru -->
+      <dependency>
+        <groupId>com.sailthru.client</groupId>
+        <artifactId>sailthru-java-client</artifactId>
+      </dependency>
+            
   </dependencies>
 
 

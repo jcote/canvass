@@ -14,7 +14,7 @@ import org.hibernate.annotations.NaturalId;
 import com.canvass.data.DataModel;
 
 /*
- * EmailList - store email addresses and other user data to be add user to the emaillist
+ * Contact - store email addresses and other user data to be add user to the emaillist
  * 
  */
 @Entity
@@ -28,16 +28,7 @@ public class Contact extends DataModel {
     @NaturalId
 	private String email = null;
 
-    @Basic
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Basic
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "zip_code")
-    private String zipCode;
+    private Integer zipCode;
     
     @Basic
     private Date createdOn; // session create time
@@ -62,27 +53,11 @@ public class Contact extends DataModel {
 		this.email = email;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getZipCode() {
+	public Integer getZipCode() {
 		return zipCode;
 	}
 
-	public void setZipCode(String zipCode) {
+	public void setZipCode(Integer zipCode) {
 		this.zipCode = zipCode;
 	}
 

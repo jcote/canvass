@@ -27,11 +27,13 @@ import java.util.logging.Logger;
 public class LoginServlet extends HttpServlet {
     private final Logger logger;
     private final DataStore dataStore;
+    private final Constants constants;
 
     @Inject
-    public LoginServlet(Logger logger, DataStore dataStore) {
+    public LoginServlet(Logger logger, Constants constants, DataStore dataStore) {
         this.logger = logger;
         this.dataStore = dataStore;
+        this.constants = constants;
     }
 
     @Override
@@ -39,22 +41,22 @@ public class LoginServlet extends HttpServlet {
         ServletContext servletContext = this.getServletContext();
 
         // get the username
-        final String username = request.getHeader(Constants.HEADER_USERNAME);
+        final String username = request.getHeader(constants.HEADER_USERNAME);
         servletContext.log("username:" + username);
         if (StringUtils.isEmpty(username)) {
-            response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, Constants.HEADER_USERNAME + " required");
+            response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, constants.HEADER_USERNAME + " required");
             return;
         }
 
         // get the hashpass
-        final String hashpass = request.getHeader(Constants.HEADER_HASHPASS);
+        final String hashpass = request.getHeader(constants.HEADER_HASHPASS);
         servletContext.log("hashpass:" + hashpass);
         if (StringUtils.isEmpty(hashpass)) {
-            response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, Constants.HEADER_HASHPASS + " required");
+            response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, constants.HEADER_HASHPASS + " required");
             return;
         }
         if (hashpass.length() != 64) {
-            response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, Constants.HEADER_HASHPASS + " incorrect length");
+            response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, constants.HEADER_HASHPASS + " incorrect length");
             return;
         }
 
@@ -83,7 +85,7 @@ public class LoginServlet extends HttpServlet {
 
         // Designate HTTP Session and Principal
         HttpSession httpSession = request.getSession();
-        httpSession.setMaxInactiveInterval(Constants.SESSION_LIFETIME);
+        httpSession.setMaxInactiveInterval(constants.SESSION_LIFETIME);
         httpSession.setAttribute("principal", account);
 
         // Create and save WebSession to DB
