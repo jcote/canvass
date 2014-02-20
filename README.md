@@ -14,7 +14,12 @@ Requirements
     - Exit MySQL shell
   - Set your MySQL password:
     - Run ```mysqladmin -u root password "newpassword"```
-    - Set the field hibernate.connection.password in  [hibernate.properties](canvass-web-main/src/main/resources/hibernate.properties) to match "newpassword"
+    - Create a hibernate.properties file in [canvass-web-main/src/main/resources](canvass-web-main/src/main/resources)
+      - Use something like ```hibernate.connection.url = jdbc:mysql://localhost:3306/canvassweb?autoReconnect=true```
+    - Create a hibernate.properties file in [canvass-web-test/src/main/resources](canvass-web-test/src/main/resources)
+      - Use something like ```hibernate.connection.url = jdbc:mysql://localhost:3306/canvasswebtest?autoReconnect=true```
+    - Set the fields hibernate.connection.username and hibernate.connection.password to be root, "newpassword"
+    - Advisable to create a 'canvass' user instead of using root
     - Don't commit changes to hibernate.properties, unless you want your password permanently stored in github history
 
 Build
@@ -46,10 +51,13 @@ Architecture
 
 &#x2713; Tomcat 7 (Web Host)
 
-&#x2717; JBoss AS7 (Web Host)
-  - After reading [the great java server app debate](http://zeroturnaround.com/rebellabs/the-great-java-application-server-debate-with-tomcat-jboss-glassfish-jetty-and-liberty-profile/) report, and discovering that Glassfish [has just been ditched](http://www.zdnet.com/oracle-abandons-commercial-support-for-glassfish-jee-server-7000022945/) by Oracle, I've decided to go with JBoss (recently renamed Wildfly).  It supports JavaEE, has a great management web console, and commercial support available.  Wildfly RC8 was released in december, and a stable version is coming soon but it is too early to use it.
+&#x2717; JBoss AS7 (Potential Web Host)
+  - After reading [the great java server app debate](http://zeroturnaround.com/rebellabs/the-great-java-application-server-debate-with-tomcat-jboss-glassfish-jetty-and-liberty-profile/) report, and discovering that Glassfish [has just been ditched](http://www.zdnet.com/oracle-abandons-commercial-support-for-glassfish-jee-server-7000022945/) by Oracle, JBoss (recently renamed Wildfly) seems the best option.  It supports JavaEE, has a great management web console, and commercial support available.  Wildfly RC8 was released in december, and a stable version is coming soon but it is too early to use it.
 
-&#x2713; Jersey (RESTful API)
+&#x2717; RestExpress (Future REST API)
+  - Built with Netty/IO for faster zero-copy, event-driven service (Node.js is event-driven) 
+
+&#x2713; Jersey (Current REST API)
 
 &#x2713; Guice (Dependency Injection)
 
@@ -61,7 +69,9 @@ Architecture
 
 &#x2713; Bootstrap (Visuals)
 
-&#x2717; Sass (Style)
+&#x2713; Coffescript Compiling (Frontend)
+
+&#x2713; Sass Compiling (Style)
 
 &#x2713; AngularJS (Frontend)
 
@@ -73,6 +83,8 @@ Architecture
 - Use [Protractor](http://www.asgarddesigns.com.au/2013/11/end-to-end-testing-with-angularjs-protractor-grunt-and-maven/), which supplants Karma as the recommended test framework for AngularJS
 
 &#x2713; Grunt (Javascript Build)
+
+&#x2713; Sailthru (Email)
 
 &#x2717; Logback (Logging)
 
