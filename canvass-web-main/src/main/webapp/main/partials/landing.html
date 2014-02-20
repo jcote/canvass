@@ -24,32 +24,38 @@
     <div class="container">
       <div class="row">
        <h2>Sign Up</h2>
-       <form class="form-contact" novalidate role="form">
-        <h2>Please enter email</h2>
-        <div class="row">
-          <div class="col-sm-6">
-            <input type="text" ng-model="item.email" class="form-control" placeholder="Email address" required autofocus>
+       <form name="signupForm" class="form-contact" novalidate role="form">
+         <div class="row">
+          <div class="col-sm-3">
+            <input type="email" name="email" ng-model="item.email" class="form-control" placeholder="email@address.com" required>
           </div>
-          <div class="col-sm-6">
-            <input type="text" ng-model="item.zipCode" class="form-control" placeholder="Zip Code" required autofocus>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <input type="text" ng-model="item.firstName" class="form-control" placeholder="First Name" required autofocus>
-          </div>
-          <div class="col-sm-6">
-            <input type="text" ng-model="item.lastName" class="form-control" placeholder="Last Name" required autofocus>
+          <div class="col-sm-3">
+            <div ng-class="alert-danger" ng-show="signupForm.email.$invalid && !signupForm.email.$pristine">Enter a valid email.</div>
+            <div ng-class="alert-success" ng-show="signupForm.email.$valid && !signupForm.email.$pristine">Looks good.</div>
           </div>
         </div>
         <div class="row">
-          <button ng-click="create(item)" class="btn btn-lg btn-primary btn-block" value="contact">Add to Email List</button>
+          <div class="col-sm-3">
+            <input type="number" name="zip" ng-model="item.zipCode" class="form-control" style="clear:none" placeholder="zip code" required ng-minlength="5" maxlength="5" ng-pattern="/^[0-9]+$/">
+          </div>
+          <div class="col-sm-3">
+            <div ng-class="alert-danger" ng-show="signupForm.zip.$error.pattern && !signupForm.zip.$pristine">Enter only digits.</div>
+            <div ng-class="alert-danger" ng-show="signupForm.zip.$error.minlength">5-digits are required.</div>
+            <div ng-class="alert-success" ng-show="signupForm.zip.$valid && !signupForm.zip.$pristine">Looks good.</div>
+          </div>
         </div>
-        </form>
-        <div ng-show="isAlertShown" ng-bind="alertText" class="alert" ng-class="'alert-' + alertStatus" ></div>
+        <div class="row">
+          <div class="col-sm-3">
+            <button ng-click="create(item)" class="btn btn-lg btn-primary btn-block" value="contact">Sign up</button>
+          </div>
+          <div class="col-sm-3">
+            <div ng-show="isSuccessShown" class="alert" ng-class="alert-success">Success!</div>
+            <div ng-show="isErrorShown" class="alert" ng-class="alert-danger">Failed!</div>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
+</div>
 </section>
 
 
@@ -97,35 +103,12 @@
 
     <div class="col-xs-12 col-sm-5">
       <div id="button-section">
-      <p><button href="#" class="btn btn-primary btn-block btn-xlarge" style="height:100px">Get Started</button></p>
-      <p><button href="#" class="btn btn-success btn-block btn-xlarge" style="height:100px">Representatives Enroll Here</button></p>
-      <p><button href="#" class="btn btn-success btn-block btn-xlarge" style="height:100px">Log In</button></p>
+        <p><button href="#" class="btn btn-primary btn-block btn-xlarge" style="height:100px">Get Started</button></p>
+        <p><button href="#" class="btn btn-success btn-block btn-xlarge" style="height:100px">Representatives Enroll Here</button></p>
+        <p><button href="#" class="btn btn-success btn-block btn-xlarge" style="height:100px">Log In</button></p>
       </div>
     </div>
-  
-</div>
-</section>
 
-<section id="contact" class="container content-section text-center">
-  <!-- section title -->
-  <div class="row">
-    <h2>Contact Us</h2>
-  </div>
-
-  <!-- address row -->
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <i class="fa fa-map-marker fa-3x"></i>
-      <p>114 N 7th St Brooklyn NY 11249</p>
-    </div>
-  </div>
-  <!-- email row -->
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <a href="mailto:info@canvass.org">
-        <i class="fa fa-envelope fa-3x"></i> info@canvass.org
-      </a>
-    </div>
   </div>
 </section>
 
@@ -135,79 +118,131 @@
     <h2>The Team</h2>
   </div>
 
-<div class="col-md-10 col-md-offset-1">
-  <!-- team member list -->
-  <ul class="list-group">
-    
-    <!-- jordan block -->
-    <li class="list-group-item team-list-item">
+  <div class="col-md-10 col-md-offset-1">
+    <!-- team member list -->
+    <ul class="list-group">
+
+      <!-- jordan block -->
+      <li class="list-group-item team-list-item">
+        <div class="row">
+
+          <!-- pic column -->
+          <div class="col-sm-4">
+            <img src="../image/jordan.jpg" alt="Jordan Cote" class="img-rounded img-responsive">
+            <p class="lead">Jordan Cote</p>
+          </div>
+          <div class="col-sm-1">
+            <p><a href="mailto:jordan@canvass.org"><i class="fa fa-envelope fa-3x"></i></a>
+              <a href="https://twitter.com/mesoproterozoic"><i class="fa fa-twitter fa-3x"></i></a></p>
+            </div>
+            <!-- info column -->
+            <div class="col-sm-7">
+              <p>
+                Jordan is a PhD student at the University of Connecticut with a focus in Cryptographic protocols that provide for simultaneous authentication and anonymity.  He is Principal Engineer at Security Scorecard and has previously worked as a Developer for Sailthru, HP and Google.
+              </p>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- alaa block -->
+        <li class="list-group-item team-list-item">
+          <div class="row">
+
+            <!-- pic column -->
+            <div class="col-sm-4">
+              <img src="../image/alaa.png" alt="Alaa Awad" class="img-rounded img-responsive">
+              <p class="lead">Alaa Awad</p>
+            </div>
+            <div class="col-sm-1">
+              <p><a href="mailto:alaa@canvass.org"><i class="fa fa-envelope fa-3x"></i></a>
+                <a href="https://twitter.com/awadalaa"><i class="fa fa-twitter fa-3x"></i></a>
+                <a href="https://github.com/awadalaa"><i class="fa fa-github fa-3x"></i></a></p>
+              </div>
+              <!-- info column -->
+              <div class="col-sm-7">
+                <p>
+                  Alaa Awad is a lead developer and database administrator at a private boutique investment bank. Alaa has been working in the technology industry for several years although he primarily focuses on full stack web and mobile development.  He holds a B.S. in Electrical Engineering from Boston University.
+                </p>
+              </div>
+            </div>
+          </li>
+
+
+          <!-- will block -->
+          <li class="list-group-item team-list-item">
+            <div class="row">
+
+              <!-- pic column -->
+              <div class="col-sm-4">
+                <img src="../image/will.jpg" alt="Will Farrell" class="img-rounded img-responsive">
+                <p class="lead">Will Farrell</p>
+              </div>
+
+              <div class="col-sm-1">
+                <p>
+                  <a href="mailto:will@canvass.org"><i class="fa fa-envelope fa-3x"></i></a>
+                </p>
+              </div>
+              <!-- info column -->
+              <div class="col-sm-7">
+                <p>
+                  Will's got what you need, if you got the cash.
+                </p>
+              </div>
+            </div>
+          </li>
+
+
+          <!-- richard block -->
+          <li class="list-group-item team-list-item">
+            <div class="row">
+
+              <!-- pic column -->
+              <div class="col-sm-4">
+                <img src="../image/richard.jpg" alt="Richard Littauer" class="img-rounded img-responsive">
+                <p class="lead">Richard Littauer</p>
+              </div>
+
+              <div class="col-sm-1">
+                <p>
+                  <a href="mailto:richard@canvass.org"><i class="fa fa-envelope fa-3x"></i></a>
+                </p>
+              </div>
+              <!-- info column -->
+              <div class="col-sm-7">
+                <p>
+                  Richard is the lead front end developer at Ideapod, a social media platform for sharing ideas. He has also worked on a lot of projects here and there, from building a choose your own adventure game around his beloved Brooklyn neighborhood, Bushwhich, to cofounding Linguists Outside Academia, a group for academically trained linguists who aren't in academia any more. He has an MA in Linguistics from Edinburgh University, and studied Computational Linguistics for a while before joining the start-up scene. He spends a good amount of his spare time writing, traveling, and sitting in cafes working on web projects.
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+
+    <section id="about" class="container content-section text-center">
+      <!-- section title -->
       <div class="row">
-        
-        <!-- pic column -->
-        <div class="col-sm-4">
-          <img src="../image/jordan.jpg" alt="Jordan Cote" class="img-rounded img-responsive">
-          <p class="lead">Jordan Cote</p>
-        </div>
-		<div class="col-sm-1">
-		<p><a href="mailto:alaa@canvass.org"><i class="fa fa-envelope fa-3x"></i></a>
-            <a href="https://twitter.com/mesoproterozoic"><i class="fa fa-twitter fa-3x"></i></a></p>
-		</div>
-        <!-- info column -->
-        <div class="col-sm-7">
-          <p>
-            Jordan is a PhD student at the University of Connecticut with a focus in Cryptographic protocols that provide for simultaneous authentication and anonymity.  He is Principal Engineer at Security Scorecard and has previously worked as a Developer for Sailthru, HP and Google.
-          </p>
+        <h2>About Us</h2>
+      </div>
+
+      <!-- content row -->
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <p>Canvass is in early-stage development phase.   We are seeking representatives who want to improve their connection with their constituency.  To assist with operational costs we are open to funding through grants or other sources.  Please contact us with any inquiries.</p>
         </div>
       </div>
-    </li>
 
-
-    <!-- alaa block -->
-    <li class="list-group-item team-list-item">
+      <!-- email row -->
       <div class="row">
-        
-        <!-- pic column -->
-        <div class="col-sm-4">
-          <img src="../image/alaa.png" alt="Alaa Awad" class="img-rounded img-responsive">
-          <p class="lead">Alaa Awad</p>
-        </div>
-		<div class="col-sm-1">
-		<p><a href="mailto:alaa@canvass.org"><i class="fa fa-envelope fa-3x"></i></a>
-            <a href="https://twitter.com/awadalaa"><i class="fa fa-twitter fa-3x"></i></a>
-            <a href="https://github.com/awadalaa"><i class="fa fa-github fa-3x"></i></a></p>
-		</div>
-        <!-- info column -->
-        <div class="col-sm-7">
-          <p>
-          Alaa Awad is a lead developer and database administrator at a private boutique investment bank. Alaa has been working in the technology industry for several years although he primarily focuses on full stack web and mobile development.  He holds a B.S. in Electrical Engineering from Boston University.
-          </p>
+        <div class="col-md-6 col-md-offset-3">
+          <a href="mailto:info@canvass.org">
+            <i class="fa fa-envelope fa-3x"></i>
+            <p>info@canvass.org</p>
+          </a>
         </div>
       </div>
-    </li>
-
-
-    <!-- alaa block -->
-    <li class="list-group-item team-list-item">
-      <div class="row">
-        
-        <!-- pic column -->
-        <div class="col-sm-4">
-          <img src="../image/jordan.jpg" alt="Will Farrell" class="img-rounded img-responsive">
-          <p class="lead">Will Farrell</p>
-        </div>
-        
-        <div class="col-sm-1">
-        <p>
-          <a href="mailto:will@canvass.org"><i class="fa fa-envelope fa-3x"></i></a>
-        </p>
-        </div>
-        <!-- info column -->
-        <div class="col-sm-7">
-          
-        </div>
-      </div>
-    </li>
-  </ul>
-  </div>
-</section>
-
+    </section>
