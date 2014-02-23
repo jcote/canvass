@@ -24,4 +24,17 @@ angular.module('canvassApp', ['ngRoute','ngResource'])
             otherwise({
                 redirectTo: '/'
             });
-        }]);
+        }])
+    .factory('DemoData', function (){
+        return {
+            "issues": [
+                {
+                    "title":"Require Employers Provide Reasonable Opportunity for Employees to Seek Legal Advice Before Signing a Noncompete Agreement ",
+                    "votes":{
+                        "for":10,
+                        "against":4
+                    }
+                }
+            ]
+        };
+    });
