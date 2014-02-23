@@ -19,50 +19,10 @@
 </section>
 
 
-<section id="signup" class="content-section text-center">
-  <div class="signup-section">
-    <div class="container">
-      <div class="row">
-       <h2>Sign Up</h2>
-       <form name="signupForm" class="form-contact" novalidate role="form">
-         <div class="row">
-          <div class="col-sm-3">
-            <input type="email" name="email" ng-model="item.email" class="form-control" placeholder="email@address.com" required>
-          </div>
-          <div class="col-sm-3">
-            <div ng-class="alert-danger" ng-show="signupForm.email.$invalid && !signupForm.email.$pristine">Enter a valid email.</div>
-            <div ng-class="alert-success" ng-show="signupForm.email.$valid && !signupForm.email.$pristine">Looks good.</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">
-            <input type="number" name="zip" ng-model="item.zipCode" class="form-control" style="clear:none" placeholder="zip code" required ng-minlength="5" maxlength="5" ng-pattern="/^[0-9]+$/">
-          </div>
-          <div class="col-sm-3">
-            <div ng-class="alert-danger" ng-show="signupForm.zip.$error.pattern && !signupForm.zip.$pristine">Enter only digits.</div>
-            <div ng-class="alert-danger" ng-show="signupForm.zip.$error.minlength">5-digits are required.</div>
-            <div ng-class="alert-success" ng-show="signupForm.zip.$valid && !signupForm.zip.$pristine">Looks good.</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">
-            <button ng-click="create(item)" class="btn btn-lg btn-primary btn-block" value="contact">Sign up</button>
-          </div>
-          <div class="col-sm-3">
-            <div ng-show="isSuccessShown" class="alert" ng-class="alert-success">Success!</div>
-            <div ng-show="isErrorShown" class="alert" ng-class="alert-danger">Failed!</div>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-</section>
-
-
 <section id="about" class="container content-section text-center">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
-      <h2>About Us</h2>
+      <h2>About Canvass</h2>
       <p>Canvass is an advisory tool for Representatives and Senators to collect the opinions of their voters.</p>
     </div>
   </div>
@@ -102,11 +62,39 @@
     </div>
 
     <div class="col-xs-12 col-sm-5">
-      <div id="button-section">
-        <p><button href="#" class="btn btn-primary btn-block btn-xlarge" style="height:100px">Get Started</button></p>
-        <p><button href="#" class="btn btn-success btn-block btn-xlarge" style="height:100px">Representatives Enroll Here</button></p>
-        <p><button href="#" class="btn btn-success btn-block btn-xlarge" style="height:100px">Log In</button></p>
+      <div class="row">
+       <h2>Sign Up</h2>
+       <form name="signupForm" class="form-contact" novalidate role="form">
+         <div class="row">
+          <div class="col-sm-6">
+            <input type="email" name="email" ng-model="item.email" class="form-control" placeholder="email@address.com" required>
+          </div>
+          <div class="col-sm-6">
+            <div ng-class="alert-danger" ng-show="signupForm.email.$invalid && !signupForm.email.$pristine">Enter a valid email.</div>
+            <div ng-class="alert-success" ng-show="signupForm.email.$valid && !signupForm.email.$pristine">Looks good.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <input type="number" name="zip" ng-model="item.zipCode" class="form-control" style="clear:none" placeholder="zip code" required ng-minlength="5" maxlength="5" ng-pattern="/^[0-9]+$/">
+          </div>
+          <div class="col-sm-6">
+            <div ng-class="alert-danger" ng-show="signupForm.zip.$error.pattern && !signupForm.zip.$pristine">Enter only digits.</div>
+            <div ng-class="alert-danger" ng-show="signupForm.zip.$error.minlength">5-digits are required.</div>
+            <div ng-class="alert-success" ng-show="signupForm.zip.$valid && !signupForm.zip.$pristine">Looks good.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <button ng-click="create(item)" class="btn btn-lg btn-primary btn-block" value="contact">Sign up</button>
+          </div>
+          <div class="col-sm-6">
+            <div ng-show="isSuccessShown" class="alert" ng-class="alert-success">Success!</div>
+            <div ng-show="isErrorShown" class="alert" ng-class="alert-danger">Failed!</div>
+        </div>
       </div>
+    </form>
+
     </div>
 
   </div>
