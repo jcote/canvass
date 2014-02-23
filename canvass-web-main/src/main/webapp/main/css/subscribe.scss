@@ -1,0 +1,67 @@
+/*###################################################################
+Subscribe Container
+###################################################################*/
+
+.subscribe-container {
+    
+    padding-top: 210px;
+    padding-bottom: 210px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.subscribe-container h2 {
+    text-align: center;
+    color: #000;
+    font-family: 'Akkurat', sans-serif;
+    font-weight: 200;
+    text-transform: lowercase;
+    font-size: 47px;
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+
+
+.subscribe-container ::-webkit-input-placeholder {
+   font-family: 'Akkurat', sans-serif;
+   text-transform: lowercase;
+   color: #515050;
+   font-weight: 300;
+}
+
+.subscribe-container :-moz-placeholder { /* Firefox 18- */
+   font-family: 'Akkurat', sans-serif;  
+   text-transform: lowercase;
+   color: #515050;
+   font-weight: 300;
+}
+
+.subscribe-container ::-moz-placeholder {  /* Firefox 19+ */
+   font-family: 'Akkurat', sans-serif;  
+   text-transform: lowercase;
+   color: #515050;
+   font-weight: 300;
+}
+
+.subscribe-container :-ms-input-placeholder {  
+   font-family: 'Akkurat', sans-serif;  
+   text-transform: lowercase;
+   color: #515050;
+   font-weight: 300;
+}
+
+.inputSection input {
+    font-size: 25px;
+    font-family: 'Akkurat', sans-serif;
+    color: #515050;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+}
+
+form {
+    margin: 0;
+}
