@@ -1,9 +1,11 @@
+@import "colors";
+
 body {
     width: 100%;
     height: 100%;
     font-family: 'Akkurat', serif;
-    color: #262626;
-    background-color: #fffaf5 url(../image/canvass.png) repeat;
+    color: $primaryType;
+    background: #fffaf5 url("../image/canvass.png") repeat;
 }
 
 html {
@@ -133,7 +135,7 @@ a:focus {
 
     .top-nav-collapse {
         padding: 0;
-        background-color: #000;
+        background-color: #fffaf5;
     }
 
     .navbar-custom.top-nav-collapse {
@@ -280,7 +282,7 @@ a:focus {
 }
 
 .content-section {
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 
@@ -354,9 +356,6 @@ form {
 
 
 @media(min-width:767px) {
-    .content-section {
-        padding-top: 250px;
-    }
 
     .download-section {
         padding: 100px 0;
