@@ -1,5 +1,5 @@
 angular.module('canvassApp')
-    .controller('LandingCtrl', ['$scope','Contacts', function($scope, Contacts){
+    .controller('LandingCtrl', ['$scope','Contacts', 'VoteChart', function($scope, Contacts){
 
         $scope.isSuccessShown = false;
         $scope.isErrorShown = false;
