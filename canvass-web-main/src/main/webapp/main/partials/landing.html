@@ -76,7 +76,7 @@
         </div>
         <div class="row">
           <div class="col-sm-6">
-            <input type="number" name="zip" ng-model="item.zipCode" class="form-control" style="clear:none" placeholder="zip code" required ng-minlength="5" maxlength="5" ng-pattern="/^[0-9]+$/">
+            <input type="text" name="zip" ng-model="item.zipCode" class="form-control" style="clear:none" placeholder="zip code" required ng-minlength="5" maxlength="5" ng-pattern="/^[0-9]+$/">
           </div>
           <div class="col-sm-6">
             <div ng-class="alert-danger" ng-show="signupForm.zip.$error.pattern && !signupForm.zip.$pristine">Enter only digits.</div>
@@ -91,146 +91,35 @@
           <div class="col-sm-6">
             <div ng-show="isSuccessShown" class="alert" ng-class="alert-success">Success!</div>
             <div ng-show="isErrorShown" class="alert" ng-class="alert-danger">Failed!</div>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
 
     </div>
 
   </div>
 </section>
 
-<section id="team" class="container content-section text-center">
+<section id="about" class="container content-section text-center">
   <!-- section title -->
   <div class="row">
-    <h2>The Team</h2>
+    <h2>About Us</h2>
   </div>
 
-  <div class="col-md-10 col-md-offset-1">
-    <!-- team member list -->
-    <ul class="list-group">
+  <!-- content row -->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <p>Canvass is in early-stage development phase.   We are seeking representatives who want to improve their connection with their constituency.  To assist with operational costs we are open to funding through grants or other sources.  Please contact us with any inquiries.</p>
+    </div>
+  </div>
 
-      <!-- jordan block -->
-      <li class="list-group-item team-list-item">
-        <div class="row">
-
-          <!-- pic column -->
-          <div class="col-sm-4">
-            <img src="../image/jordan.jpg" alt="Jordan Cote" class="img-rounded img-responsive">
-            <p class="lead">Jordan Cote</p>
-          </div>
-          <div class="col-sm-1">
-            <p><a href="mailto:jordan@canvass.org"><i class="fa fa-envelope fa-3x"></i></a>
-              <a href="https://twitter.com/mesoproterozoic"><i class="fa fa-twitter fa-3x"></i></a></p>
-            </div>
-            <!-- info column -->
-            <div class="col-sm-7">
-              <p>
-                Jordan is a PhD student at the University of Connecticut with a focus in Cryptographic protocols that provide for simultaneous authentication and anonymity.  He is Principal Engineer at Security Scorecard and has previously worked as a Developer for Sailthru, HP and Google.
-              </p>
-            </div>
-          </div>
-        </li>
-
-
-        <!-- alaa block -->
-        <li class="list-group-item team-list-item">
-          <div class="row">
-
-            <!-- pic column -->
-            <div class="col-sm-4">
-              <img src="../image/alaa.png" alt="Alaa Awad" class="img-rounded img-responsive">
-              <p class="lead">Alaa Awad</p>
-            </div>
-            <div class="col-sm-1">
-              <p><a href="mailto:alaa@canvass.org"><i class="fa fa-envelope fa-3x"></i></a>
-                <a href="https://twitter.com/awadalaa"><i class="fa fa-twitter fa-3x"></i></a>
-                <a href="https://github.com/awadalaa"><i class="fa fa-github fa-3x"></i></a></p>
-              </div>
-              <!-- info column -->
-              <div class="col-sm-7">
-                <p>
-                  Alaa Awad is a lead developer and database administrator at a private boutique investment bank. Alaa has been working in the technology industry for several years although he primarily focuses on full stack web and mobile development.  He holds a B.S. in Electrical Engineering from Boston University.
-                </p>
-              </div>
-            </div>
-          </li>
-
-
-          <!-- will block -->
-          <li class="list-group-item team-list-item">
-            <div class="row">
-
-              <!-- pic column -->
-              <div class="col-sm-4">
-                <img src="../image/will.jpg" alt="Will Farrell" class="img-rounded img-responsive">
-                <p class="lead">Will Farrell</p>
-              </div>
-
-              <div class="col-sm-1">
-                <p>
-                  <a href="mailto:will@canvass.org"><i class="fa fa-envelope fa-3x"></i></a>
-                </p>
-              </div>
-              <!-- info column -->
-              <div class="col-sm-7">
-                <p>
-                  Will's got what you need, if you got the cash.
-                </p>
-              </div>
-            </div>
-          </li>
-
-
-          <!-- richard block -->
-          <li class="list-group-item team-list-item">
-            <div class="row">
-
-              <!-- pic column -->
-              <div class="col-sm-4">
-                <img src="../image/richard.jpg" alt="Richard Littauer" class="img-rounded img-responsive">
-                <p class="lead">Richard Littauer</p>
-              </div>
-
-              <div class="col-sm-1">
-                <p>
-                  <a href="mailto:richard@canvass.org"><i class="fa fa-envelope fa-3x"></i></a>
-                </p>
-              </div>
-              <!-- info column -->
-              <div class="col-sm-7">
-                <p>
-                  Richard is the lead front end developer at Ideapod, a social media platform for sharing ideas. He has also worked on a lot of projects here and there. He spends a good amount of his spare time writing, traveling, and sitting in cafes working on web projects.
-                </p>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-
-
-    <section id="about" class="container content-section text-center">
-      <!-- section title -->
-      <div class="row">
-        <h2>About Us</h2>
-      </div>
-
-      <!-- content row -->
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <p>Canvass is in early-stage development phase.   We are seeking representatives who want to improve their connection with their constituency.  To assist with operational costs we are open to funding through grants or other sources.  Please contact us with any inquiries.</p>
-        </div>
-      </div>
-
-      <!-- email row -->
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <a href="mailto:info@canvass.org">
-            <i class="fa fa-envelope fa-3x"></i>
-            <p>info@canvass.org</p>
-          </a>
-        </div>
-      </div>
-    </section>
+  <!-- email row -->
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <a href="mailto:info@canvass.org">
+        <i class="fa fa-envelope fa-3x"></i>
+        <p>info@canvass.org</p>
+      </a>
+    </div>
+  </div>
+</section>
