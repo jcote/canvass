@@ -7,6 +7,7 @@ target/
 .project
 .classpath
 hibernate.properties
+canvass.properties
 bower_components/
 node_modules/
 .sass-cache/

@@ -6,6 +6,7 @@ angular.module('canvassApp', ['ngRoute','ngResource'])
     .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
        // Responds with 405 $locationProvider.html5Mode(true);//pushstate
+       $locationProvider.html5Mode(true);
 
         $routeProvider.
             when('/', {
