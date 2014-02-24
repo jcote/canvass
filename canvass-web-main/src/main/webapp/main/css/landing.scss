@@ -32,7 +32,6 @@
     color:yellow;
 }
 
-
 @media(min-width:767px) {
     .intro {
         height: 100%;
@@ -46,6 +45,11 @@
     .intro-text {
         font-size: 25px;
     }
+
+    .vote-results {
+        height: 200px;
+    }
+
 }
 
 
