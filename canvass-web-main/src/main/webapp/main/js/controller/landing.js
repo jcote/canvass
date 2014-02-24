@@ -1,5 +1,5 @@
 angular.module('canvassApp')
-    .controller('LandingCtrl', ['$scope','Contacts', 'VoteChart', function($scope, Contacts){
+    .controller('LandingCtrl', ['$scope','Contacts', 'VoteChart', function($scope, Contacts, VoteChart){
 
         $scope.isSuccessShown = false;
         $scope.isErrorShown = false;
@@ -23,5 +23,15 @@ angular.module('canvassApp')
             });
 
         };
+
+
+        $scope.$watch('avalue', function(newVal, oldVal) {
+            if (isNaN($scope.avalue) || $scope.avalue < 0 || $scope.avalue > 100) {
+                $scope.avalue = 33;
+            }
+
+            //angular.element('#vote-results-donut').empty();
+            VoteChart.draw($scope.avalue);
+        });
 
     }]);
