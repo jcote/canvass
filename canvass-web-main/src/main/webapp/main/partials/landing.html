@@ -20,7 +20,7 @@
 
 
 <!-- Subscribe Container -->
-<div id="subscribe" class="subscribe-container container content-section text-center">
+<div id="subscribe" ng-controller="ContactCtrl" class="subscribe-container container content-section text-center">
 	<div class="row">
 		<div class="col-lg-12">
 			<h2>Enter your contact details to request an invite</h2>
@@ -86,11 +86,12 @@
         <a class="pull-left" href="#">
           <i class="fa fa-bar-chart-o fa-5x"></i>
         </a>
-        <div class="media-body">
+        <div ng-controller="VoteDemoCtrl" class="media-body">
           <h2 class="media-heading">Examine</h2>
           <p class="lead">how others are voting.</p>
-          <input type="text" ng-model="avalue" placeholder="number" required autofocus>
-          <div id="vote-results-donut" class="vote-results"></div>
+          <button type="button" ng-click="incYay()">yay</button>
+          <button type="button" ng-click="incNay()">nay</button>
+          <highchart id="demo-vote-results" config="chartConfig" class="vote-results"></highchart>
         </div>
       </div>
       <br/>

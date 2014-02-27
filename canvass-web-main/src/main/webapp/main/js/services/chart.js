@@ -1,15 +1,39 @@
 angular.module('canvassApp')
     .service('VoteChart', function(){
-        this.draw = function(aval) {
-            Morris.Donut({
-                element: 'vote-results-donut',
-                data: [
-                {label: "Yes", value: aval},
-                {label: "No", value: 8.3},
-                {label: "Didn't Vote", value: 12.8},
-                {label: "Not Signed Up", value: 42.7}
-                ],
-                formatter: function (y) { return y + "%" ;}
-            });
+
+
+        var voteChart = {};
+        voteChart.yays = 0;
+        voteChart.nays = 0;
+        voteChart.stagedYays = 0;
+        voteChart.stagedNays = 0;
+    
+        voteChart.incYays = function() {
+            voteChart.stagedYays++;
         };
+        voteChart.incNays = function() {
+            voteChart.stagedNays++;
+        };
+
+        voteChart.updateChart = updateChart;
+        function updateChart(series) {
+                var date = (new Date()).getTime();
+                //yays
+                voteChart.yays += voteChart.stagedYays;
+                voteChart.stagedYays = 0;
+                var xYay = date,
+                    yYay = voteChart.yays;
+                 series[0].data.push([xYay, yYay]);
+                // nays
+                voteChart.nays += voteChart.stagedNays;
+                voteChart.stagedNays = 0;
+                var xNay = date,
+                    yNay = voteChart.nays;
+                series[1].data.push([xNay, yNay]);
+        }
+
+
+        return voteChart;
+
     });
+

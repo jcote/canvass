@@ -2,7 +2,7 @@
  * Created by jordancote on 12/30/13.
  */
 
-angular.module('canvassApp', ['ngRoute','ngResource'])
+angular.module('canvassApp', ['ngRoute','ngResource', 'highcharts-ng'])
     .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
        // Responds with 405 $locationProvider.html5Mode(true);//pushstate
@@ -10,8 +10,7 @@ angular.module('canvassApp', ['ngRoute','ngResource'])
 
         $routeProvider.
             when('/', {
-                templateUrl: 'partials/landing.html',
-                controller: 'LandingCtrl'
+                templateUrl: 'partials/landing.html'
             }).
             when('/enroll', {
                 templateUrl: 'partials/enroll.html',
