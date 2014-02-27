@@ -14,22 +14,23 @@
     "grunt-concurrent": "~0.3.0",
     "load-grunt-tasks": "~0.1.0",
     "time-grunt": "~0.1.0",
-    "grunt-connect-proxy": "~0.1.5"
+    "grunt-connect-proxy": "~0.1.5",
+    "grunt-bower-task": "~0.3.4"
   },
   "engines": {
     "node": ">=0.8.0"
   },
   "jshintConfig": {
-    "boss":      true,
-    "node":      true,
-    "strict":    true,
+    "boss": true,
+    "node": true,
+    "strict": true,
     "smarttabs": true,
-    "undef":     true,
-    "unused":    true,
-    "onecase":   true,
+    "undef": true,
+    "unused": true,
+    "onecase": true,
     "lastsemic": true,
-    "newcap":    false,
-    "maxlen":    100,
-    "indent":    2
+    "newcap": false,
+    "maxlen": 100,
+    "indent": 2
   }
 }

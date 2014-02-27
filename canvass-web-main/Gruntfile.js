@@ -65,6 +65,19 @@ module.exports = function (grunt) {
         }]
       }
     },
+    bower: {
+      install: {
+        options: {
+          targetDir: '<%= yeoman.dist %>/lib',
+          layout: 'byComponent',
+          install: true,
+          verbose: true,
+          cleanTargetDir: true,
+          cleanBowerDir: false,
+          bowerOptions: {}
+        }
+      }
+    },
     jshint: {
       all: [
         'Gruntfile.js',
@@ -143,6 +156,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'bower:install',
     'concurrent:dist'
   ]);
 
