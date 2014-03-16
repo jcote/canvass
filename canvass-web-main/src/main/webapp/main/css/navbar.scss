@@ -28,13 +28,13 @@
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li.active {
     outline: 0;
-    background-color: rgba(255,255,255,.2);
+    background-color: rgba(0,0,0,.2);
 }
 
 .navbar-toggle {
     padding: 4px 6px;
     font-size: 16px;
-    color: #fff;
+    color: #000000;
 }
 
 .navbar-toggle:focus,
@@ -55,10 +55,10 @@
 
     .top-nav-collapse {
         padding: 0;
-        background-color: #fffaf5;
+        background-color: #36577F;
     }
 
     .navbar-custom.top-nav-collapse {
-        border-bottom: 1px solid rgba(255,255,255,.3);
+        border-bottom: 1px solid #36445C;
     }
 }
