@@ -21,8 +21,14 @@
 </section>
 
 
-<div class="container marketing">
-
+<section id="marketing" class="container content-section text-center">
+  <div class="container marketing">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Canvass is a brand new way to interact with your elected officials to </h1>
+            <h2></h2>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-4">
             <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
@@ -40,85 +46,86 @@
             <p>See final poll results and current status of the Bill in the legislature, including the actions taken by your representative.</p>
         </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
-
-
-
-    <!-- Subscribe Container -->
-<div id="subscribe" ng-controller="ContactCtrl" class="subscribe-container container content-section text-center">
-	<div class="row">
-		<div class="col-lg-12">
-			<h2>Enter your contact details to request an invite</h2>
-			<div class="row">
-				<form name="signupForm" novalidate role="form">
-					<div class="col-lg-6 columns inputSection">
-						<input type="email" name="email" ng-model="item.email" placeholder="your email" required>
-					</div>
-					<div class="col-lg-3 columns inputSection">
-						<input type="zip" name="zip" ng-model="item.zipCode" style="clear:none" placeholder="zip code" required ng-minlength="5" maxlength="5" ng-pattern="/^[0-9]+$/">
-					</div>
-					<div class="col-lg-3 columns buttonSection">
-						<button type="submit" ng-click="create(item)"  value="contact">Sign up</button>
-					</div>
-					<div id="form_errors_email" class="col-lg-6 columns">
-						<div ng-class="alert-danger" ng-show="signupForm.email.$invalid && !signupForm.email.$pristine">Enter a valid email.</div>
-	            		<div ng-class="alert-success" ng-show="signupForm.email.$valid && !signupForm.email.$pristine">Looks good.</div>
-					</div>
-					<div id="form_errors_zip" class="col-lg-3 columns">
-						<div ng-class="alert-danger" ng-show="signupForm.zip.$error.pattern && !signupForm.zip.$pristine">Enter only digits.</div>
-			            <div ng-class="alert-danger" ng-show="signupForm.zip.$error.minlength">5-digits are required.</div>
-			            <div ng-class="alert-success" ng-show="signupForm.zip.$valid && !signupForm.zip.$pristine">Looks good.</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-
+  </div>
+</section>
 
 <section id="about" class="container content-section text-center">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1>Canvass is a brand new way to interact with your representative</h1>
-            <h2></h2>
-        </div>
-    </div>
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 pull-right">
-      <div class="media">
-        <a class="pull-left" href="#">
-          <i class="fa fa-th-list fa-5x"></i>
+      <div class="col-sm-2">
+        <a class="media-icon" href="#">
+          <i class="fa fa-users fa-5x"></i>
         </a>
+      </div>
+      <div class="col-sm-10">
         <div class="media-body">
-          <h2 class="media-heading">Browse</h2>
-          <p class="lead">issues in your state's legislature.</p>
+          <h2 class="media-heading">A problem of scale</h2>
+          <p class="lead">Representatives are disconnected from constituency due to lack of communication.  At the federal level, this the ratio could be 1,000,000:1.</p>
         </div>
       </div>
+    </div>
       <br/>
-      <div class="media">
-        <a class="pull-left" href="#">
-          <i class="fa fa-thumbs-up fa-5x"></i> 
+
+    <div class="row">
+      <div class="col-sm-2">
+        <a class="media-icon" href="#">
+          <i class="fa fa-lock fa-5x"></i>
         </a>
+      </div>
+      <div class="col-sm-10">
         <div class="media-body">
-          <h2 class="media-heading">Vote</h2>
-          <p class="lead">on the issues that matter to you.</p>
+          <h2 class="media-heading">Secure Voting Platform</h2>
+          <p class="lead">Lets everyone be confident in the accuracy of the results so that they can be used in an official capacity.</p>
         </div>
       </div>
+    </div>
       <br/>
-      <div class="media">
-        <a class="pull-left" href="#">
+    <div class="row">
+      <div class="col-sm-2">
+        <a class="media-icon" href="#">
           <i class="fa fa-bar-chart-o fa-5x"></i>
         </a>
+      </div>
+      <div class="col-sm-10">
         <div ng-controller="VoteDemoCtrl" class="media-body">
-          <h2 class="media-heading">Examine</h2>
-          <p class="lead">how others are voting.</p>
+          <h2 class="media-heading">Instant Results</h2>
+          <p class="lead">Voting results are made public so that Representatives, News reporters, and everyone else will know what your district thinks.  Analytical breakdowns by demographic are also </p>
           <button type="button" ng-click="incYay()">yay</button>
           <button type="button" ng-click="incNay()">nay</button>
           <highchart id="demo-vote-results" config="chartConfig" class="vote-results"></highchart>
         </div>
       </div>
-      <br/>
     </div>
   </div>
+</section>
+
+
+<!-- Subscribe Container -->
+<section id="subscribe-section" class="container content-section text-center">
+<div id="subscribe" ng-controller="ContactCtrl">
+    <h2>Enter your contact details to request an invite</h2>
+    <div class="row">
+        <form name="signupForm" novalidate role="form">
+            <div class="col-lg-6 columns inputSection">
+                <input type="email" name="email" ng-model="item.email" placeholder="your email" required>
+            </div>
+            <div class="col-lg-3 columns inputSection">
+                <input type="zip" name="zip" ng-model="item.zipCode" style="clear:none" placeholder="zip code" required ng-minlength="5" maxlength="5" ng-pattern="/^[0-9]+$/">
+            </div>
+            <div class="col-lg-3 columns buttonSection">
+                <button type="submit" ng-click="create(item)"  value="contact">Sign up</button>
+            </div>
+            <div id="form_errors_email" class="col-lg-6 columns">
+                <div ng-class="alert-danger" ng-show="signupForm.email.$invalid && !signupForm.email.$pristine">Enter a valid email.</div>
+                <div ng-class="alert-success" ng-show="signupForm.email.$valid && !signupForm.email.$pristine">Looks good.</div>
+            </div>
+            <div id="form_errors_zip" class="col-lg-3 columns">
+                <div ng-class="alert-danger" ng-show="signupForm.zip.$error.pattern && !signupForm.zip.$pristine">Enter only digits.</div>
+                <div ng-class="alert-danger" ng-show="signupForm.zip.$error.minlength">5-digits are required.</div>
+                <div ng-class="alert-success" ng-show="signupForm.zip.$valid && !signupForm.zip.$pristine">Looks good.</div>
+            </div>
+        </form>
+    </div>
+</div>
 </section>
 
 <section id="about" class="container content-section text-center">
