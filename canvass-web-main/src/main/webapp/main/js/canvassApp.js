@@ -20,6 +20,10 @@ angular.module('canvassApp', ['ngRoute','ngResource', 'highcharts-ng'])
                 templateUrl: 'partials/login.html',
                 controller: 'LoginCtrl'
             }).
+            when('/team', {
+                templateUrl: 'partials/team.html',
+                controller: 'TeamCtrl'
+            }).
             otherwise({
                 redirectTo: '/'
             });

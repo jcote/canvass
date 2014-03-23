@@ -23,7 +23,7 @@
   "jshintConfig": {
     "boss": true,
     "node": true,
-    "strict": true,
+    "strict": false,
     "smarttabs": true,
     "undef": true,
     "unused": true,
