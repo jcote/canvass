@@ -8,6 +8,11 @@ angular.module('canvassApp', ['ngRoute','ngResource', 'highcharts-ng'])
        // Responds with 405 $locationProvider.html5Mode(true);//pushstate
        $locationProvider.html5Mode(true);
 
+       // Should work. https://useiconic.com/community/#!/icon-aesthetic:angular-js
+       $rootScope.$on('$viewContentLoaded', function() {
+            IconicJS().inject('img.iconic')
+       };
+
         $routeProvider.
             when('/', {
                 templateUrl: 'partials/landing.html'

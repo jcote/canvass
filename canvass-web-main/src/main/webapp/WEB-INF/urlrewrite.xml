@@ -21,7 +21,7 @@
     </rule>
     
     <rule>
-        <from>^/(css|js|image|partials)/(.*)$</from>
+        <from>^/(css|js|image|partials|vendor)/(.*)$</from>
         <to type="forward">%{context-path}/main/$1/$2</to>
     </rule>
 

@@ -49,6 +49,10 @@ module.exports = function (grunt) {
       copyhtml: {
         files: ['<%= yeoman.app %>/{,*/}*.html'],
         tasks: ['copy:disthtml']
+      },
+      copyvend: {
+        files: ['<%= yeoman.app %>/{,*/}*.*'],
+        tasks: ['copy:distvend']
       }
     },
     clean: {
@@ -124,6 +128,14 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>/js',
           src: '{,*/}*.js',
           dest: '<%= yeoman.dist %>/main/js'
+        }]
+      },
+      distvend: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/vendor',
+          src: '{,*/}*.*',
+          dest: '<%= yeoman.dist %>/main/vendor'
         }]
       },
       distcss: {
